@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2astc.space/schemas/team-audit-event.schema.json",
+  "title": "A2ASTC Team Audit Event",
+  "description": "Schema for A2ASTC audit trail entries (Section 9)",
+  "type": "object",
+  "required": ["event_id", "event_type", "team_id", "timestamp", "manifest_version", "r_team", "verdict", "affected_edges", "payload_hash", "prev_hash", "entry_hash"],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "Unique event identifier (UUID)"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "TEAM_FORMED",
+        "TEAM_MEMBER_JOINED",
+        "TEAM_MEMBER_LEFT",
+        "TEAM_MERGED",
+        "TEAM_MANIFEST_UPDATED",
+        "TEAM_GATE_VERDICT",
+        "TEAM_WARN",
+        "TEAM_THROTTLED",
+        "TEAM_EDGE_ISOLATED",
+        "TEAM_TERMINATED",
+        "TEAM_DISSOLVED",
+        "TEAM_RISK_BAND_CHANGED",
+        "TEAM_CAPABILITY_ESCALATION",
+        "TEAM_SIDECHANNEL_DETECTED",
+        "TEAM_DECEPTIVE_CASCADE_DETECTED"
+      ],
+      "description": "Type of audit event"
+    },
+    "team_id": {
+      "type": "string",
+      "description": "Team identifier"
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "Event timestamp (Unix epoch)"
+    },
+    "manifest_version": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Manifest version at time of event"
+    },
+    "r_team": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Composite team risk score"
+    },
+    "verdict": {
+      "type": "string",
+      "description": "Gate verdict at time of event"
+    },
+    "affected_edges": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": { "type": "string" },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "description": "List of [sender, receiver] edges affected"
+    },
+    "payload_hash": {
+      "type": "string",
+      "description": "Hash of the message payload"
+    },
+    "prev_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of the previous entry"
+    },
+    "entry_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of this entry"
+    }
+  }
+}

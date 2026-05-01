@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2astc.space/schemas/agent-record.schema.json",
+  "title": "A2ASTC Agent Record",
+  "description": "Schema for individual agent records within a team manifest (Section 5)",
+  "type": "object",
+  "required": ["agent_id"],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "description": "Unique agent identifier"
+    },
+    "provider": {
+      "type": "string",
+      "description": "Agent provider (e.g., 'openai', 'anthropic', 'google')"
+    },
+    "model_class": {
+      "type": "string",
+      "description": "Model classification (e.g., 'gpt-4', 'claude-3', 'gemini-pro')"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of declared capabilities",
+      "examples": [
+        ["read-untrusted", "write-trusted", "code-exec", "net-egress", "memory-write", "identity-assumption"]
+      ]
+    },
+    "joined_ts": {
+      "type": "number",
+      "description": "Timestamp when agent joined the team (Unix epoch)"
+    },
+    "role_inferred": {
+      "type": "string",
+      "description": "Inferred role within the team",
+      "examples": ["peer", "coordinator", "worker", "observer"]
+    }
+  }
+}

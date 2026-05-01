@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2astc.space/schemas/policy-binding.schema.json",
+  "title": "A2ASTC Policy Binding",
+  "description": "Schema for policy bindings that influence gate decisions (Section 7)",
+  "type": "object",
+  "required": ["policy_id", "name"],
+  "properties": {
+    "policy_id": {
+      "type": "string",
+      "description": "Unique policy identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable policy name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Policy description"
+    },
+    "blocked_capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Capabilities that trigger isolation when present in team"
+    },
+    "custom_bands": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": [
+          { "type": "number" },
+          { "type": "number" },
+          { "type": "string" }
+        ],
+        "minItems": 3,
+        "maxItems": 3
+      },
+      "description": "Custom verdict bands [lower, upper, verdict]"
+    },
+    "signal_minimums": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "Minimum verdict per signal family when score > 0.5"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this policy is currently active"
+    }
+  }
+}

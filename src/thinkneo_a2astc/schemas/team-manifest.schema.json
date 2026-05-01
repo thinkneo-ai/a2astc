@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2astc.space/schemas/team-manifest.schema.json",
+  "title": "A2ASTC Team Manifest",
+  "description": "Schema for A2ASTC team manifest (Section 5)",
+  "type": "object",
+  "required": ["team_id", "members", "state", "version", "created_at", "updated_at", "aggregate_capabilities", "safety_class"],
+  "properties": {
+    "team_id": {
+      "type": "string",
+      "description": "Unique team identifier (UUIDv7 or UUIDv4)"
+    },
+    "members": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/MemberRecord"
+      },
+      "description": "Map of agent_id to member record"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["FORMING", "ACTIVE", "THROTTLED", "ISOLATED", "TERMINATED", "DISSOLVED"],
+      "description": "Current team lifecycle state"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Monotonically increasing version counter"
+    },
+    "created_at": {
+      "type": "number",
+      "description": "Team creation timestamp (Unix epoch)"
+    },
+    "updated_at": {
+      "type": "number",
+      "description": "Last update timestamp (Unix epoch)"
+    },
+    "aggregate_capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Set union of all member capabilities"
+    },
+    "safety_class": {
+      "type": "string",
+      "enum": ["STANDARD", "RESTRICTED", "HIGH_RISK"],
+      "description": "Aggregate safety classification"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata"
+    }
+  },
+  "$defs": {
+    "MemberRecord": {
+      "type": "object",
+      "required": ["agent_id"],
+      "properties": {
+        "agent_id": { "type": "string" },
+        "provider": { "type": "string" },
+        "model_class": { "type": "string" },
+        "capabilities": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "joined_ts": { "type": "number" },
+        "role_inferred": { "type": "string" }
+      }
+    }
+  }
+}

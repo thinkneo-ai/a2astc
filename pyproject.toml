@@ -1,0 +1,39 @@
+[project]
+name = "thinkneo-a2astc"
+version = "0.1.0"
+description = "A2ASTC -- Agent to Agent Software Team Compliance. Runtime compliance for multi-agent AI systems."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{name = "ThinkNEO AI", email = "thinkneo@thinkneo.ai"}]
+keywords = ["a2astc", "a2a", "agent", "compliance", "safety", "multi-agent", "governance"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["pyyaml>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "pytest-benchmark>=4.0"]
+
+[project.urls]
+Homepage = "https://a2astc.space"
+Repository = "https://github.com/thinkneo-ai/a2astc"
+Documentation = "https://a2astc.space/docs"
+Specification = "https://a2astc.space/spec"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

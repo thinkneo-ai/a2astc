@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2astc.space/schemas/gate-verdict.schema.json",
+  "title": "A2ASTC Gate Verdict",
+  "description": "Schema for gate evaluation results (Section 7)",
+  "type": "object",
+  "required": ["verdict", "r_team", "signal_scores", "safety_class", "evaluation_time_ms"],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": ["ALLOW", "WARN", "THROTTLE", "ISOLATE", "TERMINATE"],
+      "description": "The gate verdict"
+    },
+    "r_team": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Composite team risk score"
+    },
+    "signal_scores": {
+      "type": "object",
+      "properties": {
+        "topology": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "semantic": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "privilege": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "sidechannel": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "cascade": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+      },
+      "description": "Per-signal-family risk scores"
+    },
+    "safety_class": {
+      "type": "string",
+      "enum": ["STANDARD", "RESTRICTED", "HIGH_RISK"],
+      "description": "Team aggregate safety classification"
+    },
+    "team_id": {
+      "type": ["string", "null"],
+      "description": "Team identifier (null if no team detected)"
+    },
+    "manifest_version": {
+      "type": ["integer", "null"],
+      "description": "Manifest version at evaluation time"
+    },
+    "evaluation_time_ms": {
+      "type": "number",
+      "minimum": 0.0,
+      "description": "Gate evaluation latency in milliseconds"
+    },
+    "reasons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Human-readable reasons for the verdict"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional verdict metadata"
+    }
+  }
+}
