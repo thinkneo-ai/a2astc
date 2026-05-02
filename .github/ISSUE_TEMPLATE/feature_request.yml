@@ -1,0 +1,46 @@
+name: Feature Request
+description: Suggest an enhancement or new feature
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Use Case
+      description: What problem does this feature solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed solution.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Specification (SPEC.md)
+        - Detection (detector.py)
+        - Manifest (manifest.py)
+        - Audit Signals (topology/semantic/privilege/sidechannel/cascade)
+        - Gate (gate.py)
+        - Intervention (intervention.py)
+        - Trail (trail.py)
+        - Adapters (a2a_jsonrpc/a2a_grpc/mcp_bridge/generic)
+        - Configuration
+        - Conformance / TCK Fixtures
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions you've considered.

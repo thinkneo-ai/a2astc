@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "A2ASTC: Agent to Agent Software Team Compliance"
+message: "If you use A2ASTC in your research, please cite it as below."
+type: software
+authors:
+  - family-names: Bastos
+    given-names: Fabio
+    affiliation: "ThinkNEO AI Technology Company Limited"
+repository-code: "https://github.com/thinkneo-ai/a2astc"
+url: "https://a2astc.space"
+license: Apache-2.0
+version: "0.1.0"
+date-released: "2026-05-01"
+keywords:
+  - multi-agent systems
+  - AI safety
+  - runtime compliance
+  - team governance
+  - emergent behavior
+  - audit trail
+abstract: >-
+  A2ASTC is a runtime compliance layer for multi-agent AI systems.
+  It treats the emergent team formed when agents exchange messages
+  as a first-class governed entity, detecting team formation,
+  auditing emergent behavior across five signal families, enforcing
+  graduated compliance verdicts, and maintaining a tamper-evident
+  hash-chained audit trail.

@@ -2,18 +2,17 @@
 
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://pypi.org/project/thinkneo-a2astc/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-200%2B-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/tests-238%20passing-brightgreen.svg)](tests/)
 [![Conformance](https://img.shields.io/badge/TCK-15%20fixtures-orange.svg)](conformance/)
+[![Website](https://img.shields.io/badge/website-a2astc.space-00d4ff.svg)](https://a2astc.space)
 
 **Runtime compliance layer for multi-agent AI systems.**
 
-A2ASTC treats the emergent team formed when agents exchange A2A messages as a
-first-class governed entity. It detects team formation, audits emergent
-behavior, enforces compliance verdicts, and maintains a tamper-evident
-audit trail.
+Per-agent safety is necessary but not sufficient. A2ASTC governs the emergent team formed when agents exchange A2A messages — detecting team formation, auditing emergent behavior across five signal families, enforcing graduated compliance verdicts, and maintaining a tamper-evident hash-chained audit trail.
 
-> Publisher: **ThinkNEO AI Technology Company Limited** (Hong Kong)
-> Specification: [SPEC.md](SPEC.md) | Website: [a2astc.space](https://a2astc.space)
+> **Publisher:** [ThinkNEO AI Technology Company Limited](https://thinkneo.ai) (Hong Kong) — [NVIDIA Inception](https://www.nvidia.com/en-us/startups/) | [Anthropic Partner](https://www.anthropic.com/)
+>
+> **Specification:** [SPEC.md](SPEC.md) | **Website:** [a2astc.space](https://a2astc.space) | **PyPI:** [thinkneo-a2astc](https://pypi.org/project/thinkneo-a2astc/)
 
 ---
 
