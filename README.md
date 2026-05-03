@@ -1,5 +1,6 @@
 # A2ASTC -- Agent to Agent Software Team Compliance
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20002917.svg)](https://doi.org/10.5281/zenodo.20002917)
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://pypi.org/project/thinkneo-a2astc/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-238%20passing-brightgreen.svg)](tests/)
@@ -143,6 +144,14 @@ pytest benchmarks/ -v --benchmark-only
 # Run conformance
 python -m conformance.runner
 ```
+
+## How to cite
+
+If you reference A2ASTC in research, technical writing, or regulatory submissions, please cite the canonical Zenodo record:
+
+Bastos, F. (2026). *A2ASTC: Agent to Agent Software Team Compliance — Specification, Version 0.1.0* (Technical Specification). ThinkNEO Publications. https://doi.org/10.5281/zenodo.20002917
+
+BibTeX is available in CITATION.cff.
 
 ## License
 
